@@ -1,43 +1,41 @@
 <img src="default_albelli.nl.jpg" width="200">
 
-# Algorigthm Engineer Technical Assignment
+# Algorithm Engineer Technical Assignment
 
 ## Things we look for in this test
 
-We expect the candidate to show us their skills in building testable and
-maintainable software with design and architecture in mind using industry best
-practices. We value _simple_ more highly than _complex_, _working_ is better
+We expect the candidate to show us they can solve algorithmic problems in a
+clear and concise manner. Test cases should be included to demonstrate
+correctness. We value _simple_ more highly than _complex_, _working_ is better
 than _nice_. Readability matters.
 
-## Business flow
+## Problem
 
-A customer wants to order photobook with multiple pages.
-State of art algorithm analyzes pictures and predicts the order these pictures
-should follow in photobook.
-Now we need to place pictures to specific pages in photobook, so that order is
-not broken.
+A customer would like to place their photos in a photobook. Flipping through the
+book, certain photos are expected to be placed on a page before others. For
+example:
+
+- a picture of a wedding should come on a page before one of the honeymoon
+- photos of a child unwrapping their birthday gift should be on earlier pages
+  than pictures of them playing with their new toy
+
+Our state-of-the-art algorithms can predict which pairs of photos in a set have
+this property. We want to automatically place all the photos in a book using as
+few pages as possible.
 
 ## Assignment
 
-Create a an app that parses the ordered list of pictures, and calculates the
-mimimum number of pages these pictures would fit.
+The first line of the input consists of three numbers $n$, $m$ and $k$, where
+$n$ is the total number of photos in the set (labeled $1,2,..,n$) and $m$ the
+maximum allowed number of photos per page.
 
-Every picture has an unique id, from 1 to PictureCount. Picture dependencies are
-listed as pairs [PictureId1, PictureId2]. This means that PictureId1 should go
-before PictureId2 in the photobook. Whole list of dependencies would look like
-[[1,2],[1,4],[4,5]]. This means picture 1 should go before picures 2 and 4, and
-picture 4 should go before picture 5.
+Then follow $k$ lines, with on every $i^{th}$ line two numbers $u_{i}$ and
+$v_{i}$. This defines the property that photo $u_{i}$ should be on a page that
+comes strictly before the page containing photo $v_{i}$.
 
-The last parameter that needs to be taken into consideration is Limit. This
-means every page can have _at most_ Limit pictures per page.
-
-Format of the input file
-
-```
-PictureCount
-[[id1, id2],[id3,id4]...]
-Limit
-```
+Output should consist of a single line, containing either a single number
+indicating the minimum number of pages required to place all photos, or
+`Impossible` if no valid book can be created.
 
 ## Example 1
 
@@ -59,19 +57,19 @@ Limit
           └───┘
 ```
 
-input file
+Input file
 
 ```
-4
-[[2,1],[3,1],[1,4]]
-2
+4 2 3
+2 1
+3 1
+1 4
 ```
 
-Expected output: 3
+Expected output: `3`
 
-Explanation: The figure above representa a picture dependency graph. We can put
-pictures 2 and 3 on the first page, then we put picture 1 on the second page and
-finally put picture 4 on the third page.
+Pictures $2$ and $3$ can go on the first page, $1$ on the second, and $4$ on the
+third.
 
 ## Example 2
 
@@ -83,7 +81,7 @@ finally put picture 4 on the third page.
             │
             ▼
 ┌───┐     ┌───┐     ┌───┐
-│ 4 │ ──▶ │ 1 │ ◀──│ 3 │
+│ 4 │ ──▶ │ 1 │ ◀── │ 3 │
 └───┘     └───┘     └───┘
             │
             │
@@ -93,47 +91,42 @@ finally put picture 4 on the third page.
           └───┘
 ```
 
-input file
+Input file
 
 ```
-5
-[[2,1],[3,1],[4,1],[1,5]]
-2
+5 2 4
+2 1
+3 1
+4 1
+1 5
 ```
 
-Expected output: 4
+Expected output: `4`
 
-Explanation:
-
-The figure above represents a picture dependency graph. Optimal solution for
-this case would be putting pictures 2 and 3 on the first page. Then put picture
-4 on the second page. Put picture 1 on the third page. And finally put picture 5
-on the fourth page.
+Pictures $2$ and $4$ can go on the first page, $3$ on the second, $1$ on the
+third, and $5$ on the fourth.
 
 ## Example 3
 
 input file
 
 ```
-11
-[]
-2
+11 2 0
 ```
 
-Expected outcome: 6
+Expected output: `6`
 
 ## Constraints
 
-    1 <= PictureCount <= 15
-    1 <= Limit <= PictureCount
-    0 <= dependencies.length <= PictureCount * (PictureCount-1) / 2
-    All prerequisite relationships are distinct, that is, dependencies[i] != dependencies[j].
-    The given graph is a directed acyclic graph.
+    $1 <= n <= 15$
+    $1 <= m <= n$
+    $0 <= k <= n * (n - 1) / 2$
+    $1 <= u_{i}, v_{i} <= n$ for all $i$
 
 ## Source Code
 
 You should create a public GitHub and let us know when you've completed the
-exercise.
+exercise. Only C/C++, Java, Rust and C# are allowed.
 
 ## Tools and libraries
 
@@ -141,7 +134,4 @@ You are free to use any additional third-party libraries and frameworks.
 
 ## Additional information
 
-The authentication/authorization of the API is outside of scope. Feel free to
-improve the application as **you** see fit (e.g. no logging but some tests are
-nice).
-If you have any questions please reach out to us.
+Document a method of compiling your code and running a test case.
