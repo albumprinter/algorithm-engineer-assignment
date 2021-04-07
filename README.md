@@ -25,13 +25,13 @@ few pages as possible.
 
 ## Assignment
 
-The first line of the input consists of three numbers $n$, $m$ and $k$, where
-$n$ is the total number of photos in the set (labeled $1,2,..,n$) and $m$ the
+The first line of the input consists of three numbers `n`, `m` and `k`, where
+`n` is the total number of photos in the set (labeled `1,2,..,n`) and `m` the
 maximum allowed number of photos per page.
 
-Then follow $k$ lines, with on every $i^{th}$ line two numbers $u_{i}$ and
-$v_{i}$. This defines the property that photo $u_{i}$ should be on a page that
-comes strictly before the page containing photo $v_{i}$.
+Then follow `k` lines, with on every i<sup>th</sup> line two numbers `u_i` and
+`v_i`. This defines the property that photo `u_i` should be on a page that comes
+strictly before the page containing photo `v_i`.
 
 Output should consist of a single line, containing either a single number
 indicating the minimum number of pages required to place all photos, or
@@ -68,7 +68,7 @@ Input file
 
 Expected output: `3`
 
-Pictures $2$ and $3$ can go on the first page, $1$ on the second, and $4$ on the
+Pictures `2` and `3` can go on the first page, `1` on the second, and `4` on the
 third.
 
 ## Example 2
@@ -103,8 +103,8 @@ Input file
 
 Expected output: `4`
 
-Pictures $2$ and $4$ can go on the first page, $3$ on the second, $1$ on the
-third, and $5$ on the fourth.
+Pictures `2` and `4` can go on the first page, `3` on the second, `1` on the
+third, and `5` on the fourth.
 
 ## Example 3
 
@@ -118,10 +118,10 @@ Expected output: `6`
 
 ## Constraints
 
-    $1 <= n <= 15$
-    $1 <= m <= n$
-    $0 <= k <= n * (n - 1) / 2$
-    $1 <= u_{i}, v_{i} <= n$ for all $i$
+    `1 <= n <= 15`
+    `1 <= m <= n`
+    `0 <= k <= n * (n - 1) / 2`
+    `1 <= u_i, v_i} <= n` for all `i`
 
 ## Source Code
 
