@@ -118,10 +118,10 @@ Expected output: `6`
 
 ## Constraints
 
-    `1 <= n <= 15`
-    `1 <= m <= n`
-    `0 <= k <= n * (n - 1) / 2`
-    `1 <= u_i, v_i} <= n` for all `i`
+    1 <= n <= 15
+    1 <= m <= n
+    0 <= k <= n * (n - 1) / 2
+    1 <= u_i, v_i} <= n for all i
 
 ## Source Code
 
