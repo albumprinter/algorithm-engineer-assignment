@@ -126,12 +126,22 @@ Expected output: `6`
 ## Source Code
 
 You should create a public GitHub and let us know when you've completed the
-exercise. Only C/C++, Java, Rust and C# are allowed.
+exercise. Only C/C++, Java(Kotlin, Scala), Rust and C#(F#) are allowed.
 
 ## Tools and libraries
 
-You are free to use any additional third-party libraries and frameworks.
+You are free to use any additional third-party libraries and/or frameworks.
 
 ## Additional information
 
-Document a method of compiling your code and running a test case.
+Document a method of compiling your code and running a test case(s).
+
+Your application should be able to take input from the test file, and print only the result number to stdout.
+
+```shell
+$ myprogram  input1.txt
+3
+```
+
+## Bonus requirements
+After you finish your assignment, you can convert it to Python and add to the same repo. This is not a hard requirement, but might add some bonus points.
